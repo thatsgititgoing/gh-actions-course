@@ -1,0 +1,5 @@
+name: 01 - Building Blocks
+
+push:
+workflow_dispatch:
+

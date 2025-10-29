@@ -21,6 +21,8 @@ jobs:
 
       - name: files
         run: ls -al
+        run: cd 04-using-actions
+        run: ls -al
     #Installs dependencies which point to file location - 04-using-actions/react-app
 
  #     - name: Install Dependencies

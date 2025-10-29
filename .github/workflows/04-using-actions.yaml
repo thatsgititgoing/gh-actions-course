@@ -18,8 +18,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
+
+      - name: files
+        run: ls -al
     #Installs dependencies which point to file location - 04-using-actions/react-app
 
-      - name: Install Dependencies
-        run: npm ci
-        working-directory: 04-using-actions/react-app
+ #     - name: Install Dependencies
+  #      run: npm ci
+        #working-directory: /github-actions-course/04-using-actions/react-app

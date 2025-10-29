@@ -19,11 +19,6 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: files
-        run: |
-          ls -al
-          cd 04-using-actions
-          ls -al
     #Installs dependencies which point to file location - 04-using-actions/react-app
 
       - name: Install Dependencies

@@ -10,4 +10,4 @@ jobs:
         uses: actions/checkout@v5
         
       - name: Print folder structure
-        run: tree 
+        run: ls

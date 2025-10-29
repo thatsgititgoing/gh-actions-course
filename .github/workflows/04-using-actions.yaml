@@ -26,6 +26,7 @@ jobs:
           ls -al
     #Installs dependencies which point to file location - 04-using-actions/react-app
 
- #     - name: Install Dependencies
-  #      run: npm ci
-        #working-directory: /github-actions-course/04-using-actions/react-app
+      - name: Install Dependencies
+        working-directory: 04-using-actions/react-app
+        run: npm ci
+        

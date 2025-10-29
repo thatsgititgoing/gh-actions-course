@@ -21,6 +21,5 @@ jobs:
     #Installs dependencies which point to file location - 04-using-actions/react-app
 
       - name: Install Dependencies
-        run: |
-          cd .github/04-using-actions/react-app
-          npm ci
+        run: npm ci
+        working-directory: 04-using-actions/react-app

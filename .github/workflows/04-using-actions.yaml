@@ -6,8 +6,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+    #Checks out the code using actions/checkout v5
+
       - name: Checkout Code
         uses: actions/checkout@v5
-        
-      - name: Print folder structure
-        run: ls
+    
+    #Setups node using v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+    #Installs dependencies which point to file location - 04-using-actions/react-app
+      - name: Install Dependencies
+        run: |
+          cd 04-using-actions/react-app
+          npm ci

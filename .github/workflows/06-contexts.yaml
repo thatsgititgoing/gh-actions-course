@@ -18,6 +18,9 @@ jobs:
 
       - name: Retrieve Variable
         run: echo ${{ env.MY_VAR }}
+<<<<<<< HEAD
         env:
           MY_VAR: hello world
+=======
+>>>>>>> f08ced5 (feat(06-contexts.yaml) - env adjustment)
       

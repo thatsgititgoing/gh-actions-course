@@ -31,4 +31,27 @@ jobs:
         run: |
           echo "Step env var: ${{ env.OVERWRITTEN }}"
 
-      
+  echo2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Variables
+        run: |
+          echo "Repo var: ${{ vars.REPOSITORY_VAR }}"
+
+  echo-prod:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Print Prod Variables
+        run: |
+          echo "Org overwritten var: ${{ vars.OVERWRITTEN_VAR }}"
+          echo "Repo var: ${{ vars.REPOSITORY_VAR }}"
+          echo "Environment var: ${{ vars.TARGET_VAR }}"
+  
+  echo-undefined:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Print Undefined Variables
+        run: |
+          echo "Org var: ${{ TARGET_VAR }}"

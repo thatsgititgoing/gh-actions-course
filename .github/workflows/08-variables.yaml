@@ -54,4 +54,4 @@ jobs:
     steps:
       - name: Print Undefined Variables
         run: |
-          echo "Org var: ${{ TARGET_VAR }}"
+          echo "Org var: ${{ vars.TARGET_VAR }}"

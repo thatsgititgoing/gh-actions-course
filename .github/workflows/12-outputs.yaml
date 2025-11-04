@@ -25,7 +25,7 @@ jobs:
         run: echo "status=${{ inputs.build-status }}" >> $GITHUB_OUTPUT
 
   deploy: 
-    if: "${{ success(jobs.build) && inputs.options == success }}"
+    if: "${{ jobs.build }} && ${{ inputs.options }} == success"
     runs-on: ubuntu-latest
     steps:
       - name: Deploy

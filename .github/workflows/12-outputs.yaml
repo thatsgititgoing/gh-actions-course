@@ -14,20 +14,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.build.outputs.status }}
     steps:
       - name: Print GITHUB_OUTPUT path
-        run: |
-          echo $GITHUB_OUTPUT
-      
-      - name: build
+        run: echo "$GITHUB_OUTPUT"
+
+      - name: Build
         id: build
-        run: echo "status= ${{ inputs.build-status }} " >> $GITHUB_OUTPUT
-    
-    outputs:
-      name: build-status
-      run: |
-        echo "${{ inputs.build-status.build }}"
-     
+        run: echo "status=${{ inputs.build-status }}" >> $GITHUB_OUTPUT
 
-
-        
+  deploy: 
+    if: "${{ success(jobs.build) && inputs.options == success }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          echo "Deploying"

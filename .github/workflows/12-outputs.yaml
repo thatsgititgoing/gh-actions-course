@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: Print GITHUB_OUTPUT path
         run: |
-          echo ${{ env.GITHUB_OUTPUT }}
+          echo $GITHUB_OUTPUT

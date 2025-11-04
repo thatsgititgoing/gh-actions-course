@@ -12,13 +12,13 @@ jobs:
         run: |
           exit 0
       - name: I will be skipped
-        if: ${{ success() }}
+        if: ${{ failure() }}
         run: |
           echo "I will print if previous steps succeed."
       - name: I will execute
         if: ${{ always() }}
         run: |
-          "I will print if any previous step fails."
+          echo "I will print if any previous step fails."
 
 
 

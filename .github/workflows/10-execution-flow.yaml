@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       pass-unit-tests:
-        description: 'Whether unit tests should pass'
-        default: false
+        description: 'Whether unit tests should pass or not'
+        default: true
         type: boolean
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
           echo "Running tests..."
     
       - name: Failing tests
-        if: ${{ inputs.pass-unit-tests == false }}
+        if: ${{ !inputs.pass-unit-tests }}
         run: exit 1 
 
   deploy-nonprod:

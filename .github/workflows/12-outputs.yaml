@@ -1,0 +1,20 @@
+name: 12 - Working with Outputs
+
+on: 
+  workflow_dispatch:
+    inputs:
+      build-status:
+        type: choice
+        options:
+          - success
+          - failure
+        default: success
+        description: "Build Status Choice"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print GITHUB_OUTPUT path
+        run: |
+          echo ${{ env.GITHUB_OUTPUT }}

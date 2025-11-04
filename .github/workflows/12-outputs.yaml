@@ -18,3 +18,16 @@ jobs:
       - name: Print GITHUB_OUTPUT path
         run: |
           echo $GITHUB_OUTPUT
+      
+      - name: build
+        id: build
+        run: echo "status= ${{ inputs.build-status }} " >> $GITHUB_OUTPUT
+    
+    outputs:
+      name: build-status
+      run: |
+        echo "${{ inputs.build-status.build }}"
+     
+
+
+        

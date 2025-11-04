@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
-    if: ${{ input.dry-run == false }}
+    if: ${{ inputs.dry-run == false }}
     environment: target
     steps:
       - name: Deploy

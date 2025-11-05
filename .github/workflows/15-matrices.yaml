@@ -23,11 +23,10 @@ jobs:
     steps:
       - name: Setup node
         uses: actions/setup-node@v3
-        with: 
-          node-version: ${{ matrix.node-version }}
+        with: ${{ matrix.node-version }}
       
       - name: Fail if experimental
-        if: "${{ matrix.tag  == 'experimental' }}"
+        if: matrix.tag  == 'experimental'
         run: |
           exit 1
 

@@ -44,7 +44,6 @@ jobs:
     name: ${{ matrix.color }}-${{ matrix.shape }}-${{ matrix.size }}
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
       matrix: 
         color: [red, green]
         shape: [circle, square]

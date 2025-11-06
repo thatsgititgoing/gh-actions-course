@@ -36,10 +36,11 @@ runs:
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
+        cd ${{ inputs.working-dir }}
         if [ "${{ inputs.target-env }}" == "prod" ]; then
-          npm ci --prefix ${{ inputs.working-dir }} --omit="dev"
+          npm ci --omit=dev
         else
-          npm ci --prefix${{ inputs.working-dir }}
+          npm ci
         fi
       shell: bash
 

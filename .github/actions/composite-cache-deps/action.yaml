@@ -13,6 +13,11 @@ inputs:
     default: "."
     required: false
 
+  target-env:
+    description: '"dev" or "prod". Controls whether dev dependencies are installed'
+    default: "dev"
+    required: true
+
 runs:
   using: composite
   steps:
@@ -26,9 +31,15 @@ runs:
       uses: actions/cache@v3
       with:
         path: ${{ inputs.working-dir }}/node_modules
-        key: node_modules-${{ hashFiles(format('{0}/{1}', inputs.working-dir, 'package-lock.json')) }}
+        key: node_modules-${{ inputs.target-env }}-${{ hashFiles(format('{0}/{1}', inputs.working-dir, 'package-lock.json')) }}
     
     - name: Install dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: npm ci --prefix ${{ inputs.working-dir }}
+      run: |
+        if [ "${{ inputs.target-env }}" == "prod" ]; then
+          npm ci --prefix ${{ inputs.working-dir }} --omit="dev"
+        else
+          npm ci --prefix${{ inputs.working-dir }}
+        fi
       shell: bash
+

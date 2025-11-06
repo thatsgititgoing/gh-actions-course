@@ -22,3 +22,15 @@ jobs:
       - name: E2E tests
         run: |
           echo "Running E2E"
+  
+  deploy-prod:
+    runs-on: ubuntu-latest
+    if: ${{ jobs.e2e-tests == 'success' }}
+    environment: prod
+    env:  
+      my-env-value: "${{ vars.MY_ENV_VALUE || 'default value' }}"
+    steps:
+      - name: Echo vars
+        run: |
+          echo "Deploying to prod"
+      

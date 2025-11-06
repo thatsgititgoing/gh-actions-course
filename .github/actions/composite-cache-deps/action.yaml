@@ -32,4 +32,3 @@ runs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm ci --prefix ${{ inputs.working-dir }}
       shell: bash
-      working-directory: ${{ inputs.working-dir }}

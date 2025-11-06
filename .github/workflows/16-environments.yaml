@@ -25,7 +25,7 @@ jobs:
   
   deploy-prod:
     runs-on: ubuntu-latest
-    if: ${{ jobs.e2e-tests == 'success' }}
+    if: ${{ success() }}
     environment: prod
     env:  
       my-env-value: "${{ vars.MY_ENV_VALUE || 'default value' }}"

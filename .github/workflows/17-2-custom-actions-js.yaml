@@ -3,7 +3,7 @@ name: 17 - 2 - Custom Actions - JS
 on:
   workflow_dispatch:
     
-run-name: ${{ name }}
+run-name: ${{ env.name }}
 
 jobs:
   dependency-update:

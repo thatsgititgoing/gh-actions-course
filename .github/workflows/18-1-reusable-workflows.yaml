@@ -26,6 +26,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: build
+        id: build
         run: |
           echo "Building using directory ${{ inputs.target-directory }}"
           echo "build-status=success" >> "$GITHUB_OUTPUT"

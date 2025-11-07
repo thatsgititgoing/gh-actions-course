@@ -36,7 +36,7 @@ jobs:
       
       - name: Print setup deps output
         run: |
-          echo "Installed dependencies: ${{ jobs.setup-deps }}"
+          echo "Installed dependencies: ${{ steps.setup-deps }}"
       
       - name: Test
         run: |

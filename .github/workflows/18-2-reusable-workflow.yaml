@@ -6,8 +6,8 @@ on:
 jobs:
   deploy:
     uses: ./.github/workflows/18-1-reusable-workflows.yaml
-    with: ${{ input.target-directory }}
-  
+    with:
+      target-directory: src
   print-outputs:
     runs-on: ubuntu-latest
     needs:
@@ -15,6 +15,6 @@ jobs:
     steps:
       - name: Print outputs
         run: |
-          echo "Build status: ${{ steps.build.outputs.build-status }}"
- #         echo "URL: ${{ outputs.url }}"
+          echo "Build status: ${{ needs.deploy.outputs.build-status }}"
+          echo "URL: ${{ needs.deploy.outputs.url }}"
     

@@ -6,6 +6,7 @@ on:
 jobs:
   deploy:
     uses: ./.github/workflows/18-1-reusable-workflows.yaml
+    with: ${{ input.target-directory }}
   
   print-outputs:
     runs-on: ubuntu-latest

@@ -1,4 +1,4 @@
-# GitHub Actions Course - Complete Learning Guide
+# GitHub Actions Course - Complete README Guide
 
 A comprehensive, hands-on GitHub Actions course covering fundamentals through advanced topics including custom actions, caching, artifacts, and reusable workflows.
 
